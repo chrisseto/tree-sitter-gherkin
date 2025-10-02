@@ -1,0 +1,107 @@
+================================================================================
+Doc String with triple quotes
+================================================================================
+
+Feature: Doc strings
+
+  Scenario: Using doc string
+    Given I have the following JSON:
+      """
+      {
+        "name": "Alice",
+        "age": 25
+      }
+      """
+    When I parse the data
+    Then I should get a user object
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step
+        (doc_string))
+      (step)
+      (step))))
+
+================================================================================
+Doc String with content type
+================================================================================
+
+Feature: Doc string with content type
+
+  Scenario: JSON doc string
+    Given I have this JSON data:
+      """json
+      {
+        "users": [
+          {"id": 1, "name": "John"},
+          {"id": 2, "name": "Jane"}
+        ]
+      }
+      """
+    When I process the JSON
+    Then I should have 2 users
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step
+        (doc_string))
+      (step)
+      (step))))
+
+================================================================================
+Doc String with single quotes
+================================================================================
+
+Feature: Single quote doc strings
+
+  Scenario: Using single quote doc string
+    Given I have this text:
+      '''
+      This is a multi-line
+      text block using
+      single quotes
+      '''
+    When I read the text
+    Then I should see multiple lines
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step
+        (doc_string))
+      (step)
+      (step))))
+
+================================================================================
+Doc String with content type single quotes
+================================================================================
+
+Feature: Single quotes with content type
+
+  Scenario: SQL doc string
+    Given I have this SQL:
+      '''sql
+      SELECT * FROM users
+      WHERE active = true
+      ORDER BY name
+      '''
+    When I execute the query
+    Then I should get active users
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step
+        (doc_string))
+      (step)
+      (step))))

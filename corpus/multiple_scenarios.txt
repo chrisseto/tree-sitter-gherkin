@@ -1,0 +1,56 @@
+================================================================================
+Multiple Scenarios
+================================================================================
+
+Feature: Multiple scenarios example
+
+  Scenario: First scenario
+    Given I am on the login page
+    When I enter valid credentials
+    Then I should be logged in
+
+  Scenario: Second scenario
+    Given I am logged in
+    When I navigate to dashboard
+    Then I should see my profile
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step)
+      (step)
+      (step))
+    (scenario
+      (step)
+      (step)
+      (step))))
+
+================================================================================
+Different Step Keywords
+================================================================================
+
+Feature: All step keywords
+
+  Scenario: Using all keywords
+    Given I have a precondition
+    And I have another precondition
+    When I perform an action
+    And I perform another action
+    Then I see the result
+    But I don't see errors
+    * This is a generic step
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step)
+      (step)
+      (step)
+      (step)
+      (step)
+      (step)
+      (step))))

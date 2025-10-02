@@ -1,0 +1,68 @@
+================================================================================
+Feature keyword variations
+================================================================================
+
+Feature: Standard feature keyword
+
+  Scenario: Test scenario
+    Given I have something
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step))))
+
+================================================================================
+Ability keyword
+================================================================================
+
+Ability: Using ability keyword instead of feature
+
+  Scenario: Test scenario
+    Given I have something
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step))))
+
+================================================================================
+Business Need keyword
+================================================================================
+
+Business Need: Using business need keyword
+
+  Scenario: Test scenario
+    Given I have something
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step))))
+
+================================================================================
+Example vs Scenario
+================================================================================
+
+Feature: Example keyword test
+
+  Example: Using example instead of scenario
+    Given I have something
+
+  Scenario: Regular scenario
+    When I do something
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step))
+    (scenario
+      (step))))

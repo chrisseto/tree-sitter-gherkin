@@ -1,0 +1,88 @@
+================================================================================
+Scenario Outline
+================================================================================
+
+Feature: Login functionality
+
+  Scenario Outline: User login with different credentials
+    Given I am on the login page
+    When I enter "<username>" and "<password>"
+    Then I should see "<result>"
+
+    Examples:
+      | username | password | result  |
+      | admin    | secret   | success |
+      | user     | wrong    | error   |
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    (scenario_outline
+      (step)
+      (step)
+      (step)
+      (examples
+        (data_table)))))
+
+================================================================================
+Scenario Template
+================================================================================
+
+Feature: Using Scenario Template keyword
+
+  Scenario Template: Alternative keyword test
+    Given I have "<item>"
+    When I use it in "<context>"
+    Then I get "<outcome>"
+
+    Examples: Test data
+      | item | context | outcome |
+      | key  | lock    | open    |
+      | card | reader  | access  |
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    (scenario_outline
+      (step)
+      (step)
+      (step)
+      (examples
+        (data_table)))))
+
+================================================================================
+Multiple Examples
+================================================================================
+
+Feature: Multiple examples sections
+
+  Scenario Outline: Testing with multiple data sets
+    Given I have "<input>"
+    Then I expect "<output>"
+
+    Examples: Valid data
+      | input | output |
+      | yes   | true   |
+      | no    | false  |
+
+    Examples: Edge cases
+      | input | output |
+      | maybe | null   |
+      | ""    | empty  |
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (feature
+    (scenario_outline
+      (step)
+      (step)
+      (examples
+        (data_table)))
+    (ERROR
+      (UNEXPECTED 'd'))
+    (ERROR)
+    (ERROR))
+  (ERROR))

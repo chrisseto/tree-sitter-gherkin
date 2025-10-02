@@ -1,0 +1,54 @@
+================================================================================
+Comments
+================================================================================
+
+# This is a comment at the top
+Feature: Feature with comments
+  # This is a comment in the feature
+
+  Scenario: Test with comments
+    # Comment before step
+    Given I have something
+    When I do something # Inline comment not supported yet
+    Then I expect a result
+
+---
+
+(source_file
+  (comment)
+  (feature
+    (comment)
+    (scenario
+      (comment)
+      (step)
+      (step)
+      (step))))
+
+================================================================================
+Multiple Comments
+================================================================================
+
+# First comment
+# Second comment
+Feature: Multiple comments
+
+# Comment between scenarios
+  Scenario: First scenario
+    Given step one
+
+# Another comment
+  Scenario: Second scenario
+    When step two
+
+---
+
+(source_file
+  (comment)
+  (comment)
+  (feature
+    (comment)
+    (scenario
+      (step)
+      (comment))
+    (scenario
+      (step))))

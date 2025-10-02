@@ -1,0 +1,18 @@
+================================================================================
+Simple Feature
+================================================================================
+
+Feature: Simple feature
+  Scenario: Basic scenario
+    Given I have a step
+    When I do something
+    Then I expect a result
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step)
+      (step)
+      (step))))

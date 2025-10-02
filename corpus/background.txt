@@ -1,0 +1,83 @@
+================================================================================
+Background
+================================================================================
+
+Feature: Feature with background
+
+  Background:
+    Given I am on the login page
+    And I have valid credentials
+
+  Scenario: Successful login
+    When I enter my credentials
+    Then I should be logged in
+
+  Scenario: Invalid login
+    When I enter invalid credentials
+    Then I should see an error
+
+---
+
+(source_file
+  (feature
+    (background
+      (step)
+      (step))
+    (scenario
+      (step)
+      (step))
+    (scenario
+      (step)
+      (step))))
+
+================================================================================
+Background with name
+================================================================================
+
+Feature: Background with name test
+
+  Background: Setup user session
+    Given I have a user account
+    When I log into the system
+
+  Scenario: User can view profile
+    Then I can access my profile
+
+---
+
+(source_file
+  (feature
+    (background
+      (step)
+      (step))
+    (scenario
+      (step))))
+
+================================================================================
+Background with comments
+================================================================================
+
+Feature: Background with comments
+
+  Background: Setup
+    # This step sets up the test data
+    Given I have test data
+    # This step initializes the system
+    And the system is ready
+
+  Scenario: Test scenario
+    When I run a test
+    Then it should pass
+
+---
+
+(source_file
+  (feature
+    (background
+      (comment)
+      (step)
+      (comment)
+      (step))
+    (scenario
+      (step)
+      (step))))

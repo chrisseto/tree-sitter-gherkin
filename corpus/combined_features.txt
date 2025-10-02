@@ -1,0 +1,110 @@
+================================================================================
+Background with Scenario Outline
+================================================================================
+
+Feature: Complex feature with background and outline
+
+  Background:
+    Given I am logged into the system
+    And I have permissions
+
+  Scenario Outline: Testing with different roles
+    When I access "<resource>" as "<role>"
+    Then I should get "<status>"
+
+    Examples:
+      | resource | role  | status    |
+      | admin    | admin | allowed   |
+      | user     | user  | allowed   |
+      | admin    | user  | forbidden |
+
+---
+
+(source_file
+  (feature
+    (background
+      (step)
+      (step))
+    (scenario_outline
+      (step)
+      (step)
+      (examples
+        (data_table)))))
+
+================================================================================
+Step with both doc string and following step
+================================================================================
+
+Feature: Steps with attachments
+
+  Scenario: Doc string followed by table
+    Given I have this config:
+      """json
+      {
+        "database": {
+          "host": "localhost",
+          "port": 5432
+        }
+      }
+      """
+    And these connection options:
+      | option    | value |
+      | timeout   | 30    |
+      | pool_size | 10    |
+    When I connect to the database
+    Then I should be connected
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step
+        (doc_string))
+      (step
+        (data_table))
+      (step)
+      (step))))
+
+================================================================================
+Complex feature with everything
+================================================================================
+
+Feature: Kitchen sink example
+
+  Background: Setup environment
+    # Initialize the test environment
+    Given I have a clean system
+    And all services are running
+
+  Scenario: Simple test
+    When I run a basic test
+    Then it should pass
+
+  Scenario Outline: Parameterized test
+    Given I have parameter "<param>"
+    When I run test with "<input>"
+    Then I expect "<output>"
+
+    Examples: Test cases
+      | param | input | output |
+      | A     | 1     | pass   |
+      | B     | 2     | fail   |
+
+---
+
+(source_file
+  (feature
+    (background
+      (comment)
+      (step)
+      (step))
+    (scenario
+      (step)
+      (step))
+    (scenario_outline
+      (step)
+      (step)
+      (step)
+      (examples
+        (data_table)))))

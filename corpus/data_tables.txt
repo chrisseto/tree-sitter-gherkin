@@ -1,0 +1,97 @@
+================================================================================
+Data Table
+================================================================================
+
+Feature: Data tables
+
+  Scenario: Using a data table
+    Given the following users:
+      | name  | age | email             |
+      | Alice | 25  | alice@example.com |
+      | Bob   | 30  | bob@example.com   |
+    When I process the users
+    Then I should see 2 users
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step
+        (data_table))
+      (step)
+      (step))))
+
+================================================================================
+Simple Data Table
+================================================================================
+
+Feature: Simple data table
+
+  Scenario: Two column table
+    Given I have these options:
+      | option | value |
+      | debug  | true  |
+      | port   | 8080  |
+    When I configure the system
+    Then it should be ready
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step
+        (data_table))
+      (step)
+      (step))))
+
+================================================================================
+Single Column Table
+================================================================================
+
+Feature: Single column table
+
+  Scenario: List of items
+    Given I have these items:
+      | item    |
+      | apple   |
+      | banana  |
+      | cherry  |
+    When I count them
+    Then I should have 3 items
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step
+        (data_table))
+      (step)
+      (step))))
+
+================================================================================
+Empty Cells
+================================================================================
+
+Feature: Tables with empty cells
+
+  Scenario: Sparse data
+    Given I have this data:
+      | name | value | comment |
+      | test |       | empty   |
+      |      | 42    |         |
+      | full | data  | here    |
+    When I process it
+    Then I should handle empty cells
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step
+        (data_table))
+      (step)
+      (step))))

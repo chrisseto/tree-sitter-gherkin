@@ -1,0 +1,81 @@
+================================================================================
+Feature with no name
+================================================================================
+
+Feature:
+
+  Scenario: Test scenario
+    Given I have something
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step))))
+
+================================================================================
+Empty Feature
+================================================================================
+
+Feature: Empty feature
+
+---
+
+(source_file
+  (feature))
+
+================================================================================
+Scenario with no name
+================================================================================
+
+Feature: Feature with unnamed scenario
+
+  Scenario:
+    Given I have a step
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step))))
+
+================================================================================
+Mixed whitespace
+================================================================================
+
+Feature: Mixed whitespace test
+	Scenario: Tab indented scenario
+    Given I have spaces
+	When I have tabs
+    Then I expect it to work
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step)
+      (step)
+      (step))))
+
+================================================================================
+Long step text
+================================================================================
+
+Feature: Long step text
+
+  Scenario: Very long step
+    Given I have a very long step that contains multiple words and describes a complex precondition that needs to be set up before the test
+    When I perform a complex action that involves multiple user interactions and system state changes
+    Then I expect a detailed result that validates multiple aspects of the system behavior
+
+---
+
+(source_file
+  (feature
+    (scenario
+      (step)
+      (step)
+      (step))))
